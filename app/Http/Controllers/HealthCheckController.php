@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -12,7 +14,11 @@ use Exception;
 class HealthCheckController extends Controller
 {
     /**
-     * Provision a new web server.
+     * @OA\Get(
+     *     path="/status",
+     *     summary="Health check",
+     *     @OA\Response(response="200", description="OK")
+     * )
      */
     public function __invoke(): JsonResponse
     {
